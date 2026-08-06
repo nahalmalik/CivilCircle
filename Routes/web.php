@@ -25,4 +25,15 @@ $router->get('/test', function () {
 });
 
 $router->get('/login', ['AuthController', 'login']);
+$router->post('/login', ['AuthController', 'login']);
+$router->get('/register', ['AuthController', 'register']);
+$router->post('/register', ['AuthController', 'register']);
+$router->get('/logout', ['AuthController', 'logout']);
+$router->get('/forgot-password', ['AuthController', 'forgotPassword']);
+$router->post('/forgot-password', ['AuthController', 'forgotPassword']);
+$router->get('/reset-password', ['AuthController', 'resetPassword']);
+$router->post('/reset-password', ['AuthController', 'resetPassword']);
+$router->get('/verify-email', ['AuthController', 'verifyEmail']);
 $router->get('/dashboard', ['DashboardController', 'index']);
+$router->get('/profile/settings', ['ProfileController', 'settings']);
+$router->post('/profile/settings', ['ProfileController', 'settings']);

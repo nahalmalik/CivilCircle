@@ -35,6 +35,11 @@ class Session
         session_destroy();
     }
 
+    public function regenerateId($deleteOldSession = true)
+    {
+        session_regenerate_id($deleteOldSession);
+    }
+
     public function csrfToken()
     {
         if (!$this->get('_csrf_token')) {

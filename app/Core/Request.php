@@ -15,10 +15,14 @@ class Request
     {
         $requestUri = $_SERVER['REQUEST_URI'] ?? '/';
         $path = parse_url($requestUri, PHP_URL_PATH);
-        $basePath = dirname($_SERVER['SCRIPT_NAME'] ?? '/');
+        $scriptName = $_SERVER['SCRIPT_NAME'] ?? '/index.php';
+        $basePath = dirname($scriptName);
 
-        if ($basePath !== '/' && strpos($path, $basePath) === 0) {
-            $path = substr($path, strlen($basePath));
+        if ($basePath !== '/' && $basePath !== '.') {
+            $basePath = rtrim($basePath, '/');
+            if ($basePath !== '' && strpos($path, $basePath) === 0) {
+                $path = substr($path, strlen($basePath));
+            }
         }
 
         return '/' . trim($path, '/');

@@ -1,7 +1,13 @@
 <?php
 function url($path = '')
 {
-    $base = rtrim(Config::get('APP_URL', ''), '/');
+    $base = rtrim((string) Config::get('APP_URL', ''), '/');
+    if ($base === '') {
+        $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
+        $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+        $base = $scheme . $host;
+    }
+
     $path = ltrim($path, '/');
     return $base . ($path ? '/' . $path : '');
 }

@@ -1,0 +1,8 @@
+[2026-08-06 03:47:43] CSRF token validation failed
+#0 C:\xampp\htdocs\CivilCircle\app\Controllers\AuthController.php(430): CsrfMiddleware::handle(Object(Request), Object(Session))
+#1 C:\xampp\htdocs\CivilCircle\app\Controllers\AuthController.php(225): AuthController->validateCsrf()
+#2 C:\xampp\htdocs\CivilCircle\app\Controllers\AuthController.php(36): AuthController->handleRegisterPost()
+#3 C:\xampp\htdocs\CivilCircle\app\Core\Router.php(51): AuthController->register()
+#4 C:\xampp\htdocs\CivilCircle\app\Core\Application.php(22): Router->dispatch('POST', '/register')
+#5 C:\xampp\htdocs\CivilCircle\public\index.php(17): Application->run()
+#6 {main}

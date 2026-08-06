@@ -10,6 +10,7 @@ require dirname(__DIR__) . '/app/Core/Model.php';
 require dirname(__DIR__) . '/app/Core/Application.php';
 require dirname(__DIR__) . '/app/Helpers/helpers.php';
 require dirname(__DIR__) . '/app/Middleware/CsrfMiddleware.php';
+require dirname(__DIR__) . '/app/Middleware/AuthMiddleware.php';
 require dirname(__DIR__) . '/app/Controllers/BaseController.php';
 
 $app = new Application();
